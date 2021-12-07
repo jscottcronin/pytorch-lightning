@@ -53,15 +53,8 @@ log = logging.getLogger(__name__)
 
 class XLAProfiler(BaseProfiler):
 
-    STEP_FUNCTIONS = {"training_step_and_backward", "validation_step", "test_step", "predict_step"}
-    RECORD_FUNCTIONS = {
-        "training_step_and_backward",
-        "training_step",
-        "backward",
-        "validation_step",
-        "test_step",
-        "predict_step",
-    }
+    STEP_FUNCTIONS = {"training_step", "validation_step", "test_step", "predict_step"}
+    RECORD_FUNCTIONS = STEP_FUNCTIONS.union({"backward"})
 
     def __init__(self, port: int = 9012) -> None:
         """This Profiler will help you debug and optimize training workload performance for your models using Cloud

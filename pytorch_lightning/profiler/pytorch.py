@@ -194,16 +194,9 @@ class ScheduleWrapper:
 
 class PyTorchProfiler(BaseProfiler):
 
-    RECORD_FUNCTIONS = {
-        "training_step_and_backward",
-        "training_step",
-        "backward",
-        "validation_step",
-        "test_step",
-        "predict_step",
-    }
     RECORD_FUNCTION_PREFIX = "optimizer_step_with_closure_"
     STEP_FUNCTIONS = {"training_step", "validation_step", "test_step", "predict_step"}
+    RECORD_FUNCTIONS = STEP_FUNCTIONS.union({"backward"})
     STEP_FUNCTION_PREFIX = "optimizer_step_with_closure_"
     AVAILABLE_SORT_KEYS = {
         "cpu_time",
