@@ -110,8 +110,6 @@ from pytorch_lightning.utilities.types import (
     LRSchedulerTypeUnion,
     STEP_OUTPUT,
     TRAIN_DATALOADERS,
-    LRSchedulerTypeUnion,
-    TRAIN_DATALOADERS,
 )
 from pytorch_lightning.utilities.warnings import PossibleUserWarning
 
